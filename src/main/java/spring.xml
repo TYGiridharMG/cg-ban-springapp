@@ -1,0 +1,66 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- Spring core xml element -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Creating bean using 0 arg constructor and setting values using setter methods -->
+	<bean id="helloWorld"
+		class="com.testyantra.cgbanspringapp.di.HelloWorld">
+		<property name="message" value="Hello World !!!!!!!!"></property>
+		<property name="count" value="10"></property>
+	</bean>
+	
+	<bean id="dog" class="com.testyantra.cgbanspringapp.di.Dog"></bean>
+	<bean id="animal" class="com.testyantra.cgbanspringapp.di.Cat"></bean>
+	
+	<bean id="pet" class="com.testyantra.cgbanspringapp.di.Pet" 
+		autowire="byName"><!-- autowiring byName -->
+		<!-- autowire="byType" -->
+		<!-- autowire="constructor" -->
+		
+		<!-- setting value for a member -->
+		<property name="name" value="Ramzi"></property>
+		
+		<!-- wiring through setter methods -->
+		<!-- <property name="animal" ref="dog"></property> -->
+		
+		<!-- setting constructor -->
+		<!-- <constructor-arg name="name" value="Ramzi"></constructor-arg> -->
+		
+		<!-- wiring through constructor arg -->
+		<!-- <constructor-arg name="animal" ref="dog"></constructor-arg> -->
+	</bean>
+	
+	<bean id="employee" class="com.testyantra.cgbanspringapp.di.Employee">
+		<property name="id" value="1"></property>
+		<property name="name" value="Harisha"></property>
+		<property name="phNo">
+		<!-- setting list values -->
+			<list>
+				<value>987654321</value>
+				<value>876543210</value>
+			</list>
+		</property>
+		<!-- <property name="">
+			<map>
+				<entry key="" value=""></entry>
+				<entry key="" value=""></entry>
+				<entry key="" value=""></entry>
+				<entry key="" value-ref=""></entry>
+			</map>
+		</property> -->
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
